@@ -8,42 +8,33 @@
     --color-white: #FFFFFF;
 }
 
-/* Modo oscuro */
-.dark-mode {
-    --color-primary: #1e1e1e;
-    --color-secondary: #333;
-    --color-text: #f1f1f1;
-}
 
-/* Reset de estilos */
+
+/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Configuración del body */
 body {
     height: 100vh;
     background-color: var(--color-primary);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-/* Contenedor principal */
 .main-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 50vh;
-    width: 50%;
-    max-width: 1200px;
-    padding-bottom: 60px;
+    height: 100%;
+    width: 100%;
 }
 
 /* Banner */
 .header-banner {
+    flex: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,8 +43,7 @@ body {
 
 /* Sección de entrada */
 .input-section {
-    flex-grow: 1;
-    min-height: 300px;
+    flex: 60%;
     background-color: var(--color-secondary);
     border: 1px solid #000;
     border-radius: 64px 64px 0 0;
@@ -62,20 +52,6 @@ body {
     align-items: center;
     padding: 20px;
     width: 100%;
-    max-width: 600px;
-}
-
-/* Lista de nombres con scroll */
-.name-list {
-    width: 50%;
-    max-width: 500px;
-    max-height: 250px;
-    overflow-y: auto;
-    background: var(--color-white);
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 15px;
 }
 
 /* Títulos */
@@ -85,7 +61,6 @@ body {
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
-    text-align: center;
 }
 
 .section-title {
@@ -97,7 +72,7 @@ body {
     text-align: center;
 }
 
-/* Input y botones */
+/* Contenedores de entrada y botón */
 .input-wrapper {
     display: flex;
     justify-content: center;
@@ -119,7 +94,19 @@ body {
     justify-content: center;
 }
 
-/* Estilos de botones */
+/* Estilos de entrada de texto */
+.input-title {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-right: none;
+    border-radius: 25px 0 0 25px;
+    font-family: "Merriweather", serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos de botón */
 button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
@@ -128,7 +115,6 @@ button {
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
 }
 
 .button-add {
@@ -139,13 +125,29 @@ button {
 
 .button-add:hover {
     background-color: #a1a1a1;
-    transform: scale(1.05);
 }
 
+/* Listas */
+ul {
+    list-style-type: none;
+    color: var(--color-text);
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.result-list {
+    margin-top: 15px;
+    color: #05DF05;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Botón de sortear título */
 .button-draw {
     display: flex;
     align-items: center;
-    justify-content: center;
     width: 100%;
     padding: 10px 40px;
     color: var(--color-white);
@@ -153,147 +155,17 @@ button {
     font-size: 16px;
 }
 
+.button-draw img {
+    margin-right: 40px;
+}
+
 .button-draw:hover {
     background-color: var(--color-button-hover);
-    transform: scale(1.05);
 }
 
-/* Animación de lista */
-.name-list li {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeIn 0.5s ease-in-out forwards;
-}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-/* Estilos del footer */
-.footer {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    text-align: center;
-    padding: 10px;
-    font-size: 16px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
 
-.footer nav {
-    margin-top: 10px;
-}
 
-.footer nav a {
-    color: var(--color-white);
-    text-decoration: none;
-    margin: 0 10px;
-}
 
-.footer nav a:hover {
-    text-decoration: underline;
-}
 
-/* Ajuste del botón de modo oscuro */
-#modo-oscuro {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-#modo-oscuro:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.05);
-}
-
-/* Ajuste del footer para que no tape el contenido */
-footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    font-size: 14px;
-}
-
-/* Centrar el contenido principal */
-.contenedor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    text-align: center;
-}
-
-/* Ajustar el botón de "Sorteo amigo" */
-#sortear {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ff5733;
-    border-radius: 20px;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-#sortear:hover {
-    background-color: #e04d2b;
-    transform: scale(1.05);
-}
-
-/* Ajuste del formulario */
-.formulario {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px;
-}
-
-input[type="text"] {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    width: calc(100% - 100px);
-}
-
-button {
-    padding: 10px 15px;
-    border: none;
-    background: #333;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background: #555;
-}
