@@ -21,13 +21,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    align-items: flex-start;
 }
 
 .main-content {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
+    min-height: 90vh;
 }
 
 /* Banner */
@@ -41,7 +41,8 @@ body {
 
 /* Sección de entrada */
 .input-section {
-    flex: 60%;
+    flex-grow: 1; /* Permite que el contenido crezca en lugar de ocupar el 60% */
+    min-height: 300px; /* Establece una altura mínima */
     background-color: var(--color-secondary);
     border: 1px solid #000;
     border-radius: 64px 64px 0 0;
@@ -49,7 +50,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    width: 100%;
+    width: 130%;
 }
 
 /* Títulos */
@@ -197,4 +198,32 @@ ul {
     --color-primary: #1e1e1e;
     --color-secondary: #333;
     --color-text: #f1f1f1;
+}
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer nav {
+    margin-top: 10px;
+}
+
+.footer nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer nav a:hover {
+    text-decoration: underline;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
 }
