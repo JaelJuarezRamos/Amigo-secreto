@@ -8,31 +8,46 @@
     --color-white: #FFFFFF;
 }
 
-/* Estilos generales */
+/* Modo oscuro */
+.dark-mode {
+    --color-primary: #1e1e1e;
+    --color-secondary: #333;
+    --color-text: #f1f1f1;
+}
+
+/* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Configuración del body */
 body {
     height: 100vh;
     background-color: var(--color-primary);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    align-items: flex-start;
+    
+
+
 }
 
+/* Contenedor principal */
 .main-content {
     display: flex;
     flex-direction: column;
-    min-height: 70vh;
+    justify-content: space-between;
+    min-height: 50vh;
+    width: 50%;
+    max-width: 1200px;
+    padding-bottom: 60px; /* Para evitar que el contenido se sobreponga con el footer */
+
 }
 
 /* Banner */
 .header-banner {
-    flex: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,8 +56,8 @@ body {
 
 /* Sección de entrada */
 .input-section {
-    flex-grow: 1; /* Permite que el contenido crezca en lugar de ocupar el 60% */
-    min-height: 300px; /* Establece una altura mínima */
+    flex-grow: 1;
+    min-height: 300px;
     background-color: var(--color-secondary);
     border: 1px solid #000;
     border-radius: 64px 64px 0 0;
@@ -50,7 +65,21 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    width: 130%;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Lista de nombres con scroll */
+.name-list {
+    width: 50%;
+    max-width: 500px;
+    max-height: 250px; /* Limita el crecimiento */
+    overflow-y: auto;  /* Permite hacer scroll */
+    background: var(--color-white);
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15px;
 }
 
 /* Títulos */
@@ -60,6 +89,7 @@ body {
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
+    text-align: center;
 }
 
 .section-title {
@@ -71,7 +101,7 @@ body {
     text-align: center;
 }
 
-/* Contenedores de entrada y botón */
+/* Input y botones */
 .input-wrapper {
     display: flex;
     justify-content: center;
@@ -93,19 +123,7 @@ body {
     justify-content: center;
 }
 
-/* Estilos de entrada de texto */
-.input-title {
-    flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #333;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Estilos de botón */
+/* Estilos de botones */
 button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
@@ -114,6 +132,7 @@ button {
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .button-add {
@@ -124,29 +143,13 @@ button {
 
 .button-add:hover {
     background-color: #a1a1a1;
+    transform: scale(1.05);
 }
 
-/* Listas */
-ul {
-    list-style-type: none;
-    color: var(--color-text);
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    margin: 20px 0;
-}
-
-.result-list {
-    margin-top: 15px;
-    color: #233f67;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Botón de sortear título */
 .button-draw {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 10px 40px;
     color: var(--color-white);
@@ -154,30 +157,12 @@ ul {
     font-size: 16px;
 }
 
-.button-draw img {
-    margin-right: 40px;
-}
-
 .button-draw:hover {
     background-color: var(--color-button-hover);
-}
-.button-add,
-.button-draw {
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.button-add:hover,
-.button-draw:hover {
     transform: scale(1.05);
 }
 
-.input-name {
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-.input-name:focus {
-    box-shadow: 0 0 10px rgba(95, 117, 212, 0.6);
-}
+/* Animación de lista */
 .name-list li {
     opacity: 0;
     transform: translateY(10px);
@@ -194,20 +179,18 @@ ul {
         transform: translateY(0);
     }
 }
-.dark-mode {
-    --color-primary: #1e1e1e;
-    --color-secondary: #333;
-    --color-text: #f1f1f1;
-}
+
+/* Estilos del footer */
 .footer {
     background-color: var(--color-primary);
     color: var(--color-white);
     text-align: center;
     padding: 10px;
     font-size: 16px;
-    position: relative;
+    width: 100%;
+    position: fixed;
     bottom: 0;
-    width: 99%;
+    left: 0;
 }
 
 .footer nav {
@@ -222,8 +205,4 @@ ul {
 
 .footer nav a:hover {
     text-decoration: underline;
-}
-.footer {
-    position: absolute;
-    bottom: 0;
 }
