@@ -29,9 +29,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-
-
 }
 
 /* Contenedor principal */
@@ -42,8 +39,7 @@ body {
     min-height: 50vh;
     width: 50%;
     max-width: 1200px;
-    padding-bottom: 60px; /* Para evitar que el contenido se sobreponga con el footer */
-
+    padding-bottom: 60px;
 }
 
 /* Banner */
@@ -73,8 +69,8 @@ body {
 .name-list {
     width: 50%;
     max-width: 500px;
-    max-height: 250px; /* Limita el crecimiento */
-    overflow-y: auto;  /* Permite hacer scroll */
+    max-height: 250px;
+    overflow-y: auto;
     background: var(--color-white);
     border: 1px solid #000;
     border-radius: 10px;
@@ -205,4 +201,99 @@ button {
 
 .footer nav a:hover {
     text-decoration: underline;
+}
+
+/* Ajuste del botón de modo oscuro */
+#modo-oscuro {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#modo-oscuro:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* Ajuste del footer para que no tape el contenido */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Centrar el contenido principal */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+}
+
+/* Ajustar el botón de "Sorteo amigo" */
+#sortear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff5733;
+    border-radius: 20px;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#sortear:hover {
+    background-color: #e04d2b;
+    transform: scale(1.05);
+}
+
+/* Ajuste del formulario */
+.formulario {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: calc(100% - 100px);
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background: #333;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #555;
 }
